@@ -1,0 +1,14 @@
+{
+	"name": "Artside",
+	"description": "Homework #1",
+	"author": "noname",
+	"version": "1.0.0",
+	"dependencies": {
+
+	},
+	"devDependencies": {
+		"grunt-contrib-csslint": "latest",
+		"grunt-contrib-watch": "latest",
+		"grunt-htmlhint":  "latest"
+	}
+}
