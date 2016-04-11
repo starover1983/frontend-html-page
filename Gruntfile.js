@@ -35,15 +35,36 @@ module.exports = function (grunt) {
 					livereload: 35729
 				}
 			}
+		},
+        'validation': {
+			options: {
+				reset: grunt.option('reset') || false,
+				stoponerror: false,
+				doctype: 'HTML5',
+				charset: 'utf-8',
+				generateReport: false,
+				errorHTMLRootDir: "w3c",
+				errorTemplate: "w3c_validation_error_Template.html",
+				failHard: true,
+				relaxerror: [] //ignores these errors 
+			},
+			files: {
+				src: [SRC_DIR + '/**/*.html']
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-htmlhint');
+	grunt.loadNpmTasks('grunt-w3c-html-validation');
 
 	grunt.registerTask('live', ['watch']);
-    grunt.registerTask('livereload', ['live']);
 	grunt.registerTask('csscode', ['csslint:main']);
 	grunt.registerTask('htmlcode', ['htmlhint:main']);
+	grunt.registerTask("htmlvalidate", ["validation"]);
+	
+	//BAT files mirrors
+    grunt.registerTask('livereload', ['live']);
+	grunt.registerTask('analize', ['htmlcode', 'htmlvalidate', 'csscode']);
 };

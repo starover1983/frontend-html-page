@@ -1,5 +1,5 @@
 {
-	"name": "Artside",
+	"name": "frontend-html-page",
 	"description": "Homework #1",
 	"author": "noname",
 	"version": "1.0.0",
@@ -9,6 +9,7 @@
 	"devDependencies": {
 		"grunt-contrib-csslint": "latest",
 		"grunt-contrib-watch": "latest",
-		"grunt-htmlhint":  "latest"
+		"grunt-htmlhint":  "latest",
+        "grunt-w3c-html-validation": "latest"
 	}
 }
